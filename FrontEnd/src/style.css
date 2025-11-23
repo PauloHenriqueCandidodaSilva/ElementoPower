@@ -1,0 +1,314 @@
+/* ======== IMPORTAÇÃO DE FONTES ======== */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BenchNine:wght@300;400;700&display=swap');
+
+/* ======== ESTILOS GERAIS ======== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+  font-family: 'BenchNine', sans-serif;
+  font-size: 18px;
+}
+
+/* ======== NAVBAR ======== */
+nav {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo à esquerda */
+nav .logo img {
+  width: 60px;
+}
+
+/* Campo de pesquisa centralizado */
+nav .pesquisa {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+nav .pesquisa input {
+  width: 320px;
+  padding: 10px 40px 10px 40px;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  font-size: 1rem;
+  background-color: #f2f2f2;
+  background-image: url('https://fonts.gstatic.com/s/i/materialiconsoutlined/search/v6/24px.svg');
+  background-repeat: no-repeat;
+  background-size: 18px;
+  background-position: 12px center;
+  color: #333;
+  font-family: 'BenchNine', sans-serif;
+}
+
+/* Ícones à direita */
+nav .icone {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+nav .icone a img {
+  width: 26px;
+  transition: transform 0.2s;
+}
+
+nav .icone a img:hover {
+  transform: scale(1.1);
+}
+
+/* Menu centralizado abaixo do campo de busca */
+nav .menu {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 25px;
+}
+
+nav .menu a {
+  color: #f9a825;
+  text-decoration: none;
+  font-family: 'BenchNine', sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+/* Barra “|” entre os itens */
+nav .menu a:not(:last-child)::after {
+  content: "|";
+  color: #f9a825;
+  margin-left: 15px;
+}
+
+/* Hover */
+nav .menu a:hover {
+  color: #ffd54f;
+}
+
+
+/* ======== BANNER ======== */
+.banner img {
+  width: 100%;
+  display: block;
+  margin-bottom: 30px;
+}
+
+/* ======== SEÇÕES ======== */
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ======== SUPLEMENTOS / PROMOÇÕES ======== */
+section h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.3rem;
+  color: #000;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  margin-left: 130px;
+}
+
+.container-card-suplementos,
+.container-card-promocoes {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+}
+
+.container-card-suplementos div,
+.container-card-promocoes div {
+  background-color: #111;
+  border-radius: 15px;
+  text-align: center;
+  padding: 20px;
+  width: 270px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+
+.container-card-suplementos div:hover,
+.container-card-promocoes div:hover {
+  transform: scale(1.05);
+}
+
+.container-card-suplementos img,
+.container-card-promocoes img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.container-card-suplementos h3,
+.container-card-promocoes h3 {
+  color: #fff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 200;
+  margin: 15px 0 10px;
+  letter-spacing: 0.5px;
+}
+
+.container-card-suplementos p,
+.container-card-promocoes p {
+  color: #f9a825;
+  font-family: 'BenchNine', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.btn-compra {
+  background-color: #f9a825;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 48px;
+  cursor: pointer;
+  font-family: 'BenchNine', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  transition: background 0.3s;
+}
+
+.btn-compra:hover {
+  background-color: #000;
+  border: #f9a825 2px solid;
+  color: #f9a825;
+}
+
+/* ======== SEÇÃO SOBRE NÓS ======== */
+#sobre-nos {
+  margin-top: 60px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+#sobre-nos .fundo {
+  position: relative;
+  background-color: #f9a825;
+  color: #000;
+  border-radius: 20px;
+  padding: 100px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 7px 14px #000000 ;
+}
+
+#sobre-nos .fundo:hover {
+      transform: scale(1.05);
+}
+
+#sobre-nos h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+#sobre-nos p {
+  position: relative;
+  font-family: 'BenchNine', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+/* ======== FOOTER ======== */
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 50px 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 3px solid #f9a825;
+  font-family: 'BenchNine', sans-serif;
+}
+
+/* Container principal do conteúdo */
+footer .logo-footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1100px;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+/* ===== LOGO ===== */
+footer .logo-footer img {
+  width: 90px;
+}
+
+/* ===== COLUNAS ===== */
+footer .produtos-footer,
+footer .navegacao-footer,
+footer .contatos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  min-width: 200px;
+}
+
+footer h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #f9a825;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+/* ===== LINKS E TEXTOS ===== */
+footer a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #f9a825;
+}
+
+/* ===== ÍCONES ===== */
+footer .contatos i {
+  font-size: 1.1rem;
+  width: 18px;
+  text-align: center;
+}
+
+/* ===== LINHA DE PAGAMENTOS ===== */
+footer > img:last-child {
+  width: 220px;
+  margin-top: 30px;
+  opacity: 0.9;
+}
+
