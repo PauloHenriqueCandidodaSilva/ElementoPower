@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style-login.css">
+    <title>Cadastro</title>
+</head>
+<body>
+
+    <a href="login.html"><img src="src/img/Arrow 1.png" alt="Login" class="retorno"></a>
+
+    <h1>Cadastro de Usuário</h1>
+
+    <form class="cadastro" id="form-cadastro">
+
+        <p id="mensagem" class="mensagem"></p>
+
+        <div class="form-grid">
+
+            <div class="coluna-esquerda">
+                <label for="nome">Nome do usuário</label>
+                <input id="nome" type="text" placeholder="Thiago Santos">
+
+                <label for="login">Login do usuário</label>
+                <input id="login" type="text" placeholder="Thiago_Santos">
+
+                <label for="senha">Senha</label>
+                <input id="senha" type="password" placeholder="Mín. 6 caracteres">
+
+                <label for="confirmar-senha">Confirmar Senha</label>
+                <input id="confirmar-senha" type="password" placeholder="Mín. 6 caracteres">
+            </div>
+
+            <div class="coluna-direita">
+                <label for="cep">CEP</label>
+                <input id="cep" type="number" placeholder="04538132">
+
+                <label for="telefone">Telefone</label>
+                <input id="telefone" type="number" placeholder="11987654321">
+
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="Thiago_Silva@gmail.com">
+            </div>
+
+        </div>
+
+        <button type="submit">Finalizar cadastro</button>
+    </form>
+
+    <script src="cadastro.js"></script>
+
+</body>
+</html>

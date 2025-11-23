@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BenchNine:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;       
+  display: flex;
+  flex-direction: column;
+  align-items: center;      
+  background: black;
+  font-family: 'BenchNine', sans-serif;
+  color: #fff;
+  overflow-y: auto;         
+  padding-top: 40px;        
+  padding-bottom: 40px;    
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 30px;
+  margin-top: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffae00;
+}
+
+form.login {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color:black;
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  width: 320px;
+  color: #ffae00;
+}
+
+form.login label {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+form.login input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+form.login input:focus {
+  border-color: #ffae00;
+  box-shadow: 0 0 6px rgba(255, 174, 0, 0.6);
+}
+
+button {
+  margin-top: 30px;
+  padding: 12px;
+  background-color: #ffae00;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 2px;
+}
+
+button:hover {
+  background-color: #ffae00;
+  transform: scale(1.03);
+}
+
+.link {
+  margin-top: 15px;
+  color: #ffae00;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: 0.3ss;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: #ffae00;
+}
+
+
+/* Cadastro */
+
+img.retorno {
+  position: fixed;
+  top: 20px;   
+  left: 20px;   
+  width: 40px;  
+  cursor: pointer; 
+}
+
+form.cadastro {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: black;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  width: 600px;
+  color: #ffae00;
+}
+
+form.cadastro label {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+form.cadastro input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+form.cadastro input:focus {
+  border-color: #ffae00;
+  box-shadow: 0 0 6px rgba(255, 174, 0, 0.6);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 40px;
+}
+
+form.cadastro label,
+form.cadastro input {
+  width: 100%;
+}
+
+.coluna-esquerda,
+.coluna-direita{
+display: flex;
+  flex-direction: column;
+  gap: 15px
+}
+
+/* admin.html*/
+
+.admin-main { 
+    display: flex;
+    flex-direction: column;  
+    gap: 32px;                
+    align-items: stretch;     
+}
+
+.admin-form { 
+    width: 100%;              
+    max-width: 800px;         
+}
+
+.admin-table { 
+    width: 100%;
+    max-height: none;        
+    overflow: visible;        
+}
+
+.table { 
+    width:100%; 
+    border-collapse:collapse; 
+}
+.table th, 
+.table td { 
+    padding:8px 10px; 
+    border-bottom:1px solid rgba(0,0,0,0.08); 
+    text-align:left; 
+    vertical-align:middle; 
+}
+.table th { 
+    font-weight:600; 
+}
+.small { 
+    font-size:0.9rem; 
+    color:#555; 
+}
+.actions button { 
+    margin-right:6px; 
+}
+.sem-itens { 
+    padding:16px; 
+    color:#666; 
+    font-style:italic; 
+}
+input[type="number"] { 
+    -moz-appearance:textfield; 
+}
+.input-inline { 
+    width:100%; 
+    box-sizing:border-box; 
+}
