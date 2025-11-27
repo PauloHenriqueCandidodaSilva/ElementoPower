@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="src/style.css">
+  <title>Carrinho</title>
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+
+<body>
+
+  <!-- NAV SUPERIOR -->
+  <nav>
+    <div class="logo">
+      <img src="src/img/Logo.png" alt="Logo" />
+    </div>
+
+    <div class="progresso">
+      <div class="etapa ativa">
+        <img src="src/img/Icone/carrinho-icone.svg" class="icone">
+        <span>CARRINHO</span>
+        <div class="ponto"></div>
+      </div>
+
+      <div class="linha"></div>
+
+      <div class="etapa">
+        <img src="src/img/Icone/user-icone.svg" class="icone">
+        <span>LOGIN</span>
+        <div class="ponto"></div>
+      </div>
+
+      <div class="linha"></div>
+
+      <div class="etapa">
+        <img src="src/img/Icone/check-icone.svg" class="icone">
+        <span>CHECKOUT</span>
+        <div class="ponto"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="cart-grid">
+
+    <!-- COLUNA ESQUERDA – ITENS -->
+    <section class="cart-itens">
+      <h1>Seu Carrinho</h1>
+
+      <div id="lista-carrinho"></div>
+    </section>
+
+    <!-- COLUNA DIREITA – RESUMO -->
+    <aside class="resumo">
+      <div class="box">
+        <div class="linhaResumo">
+          <span>PRODUTOS</span>
+          <span id="total-produtos">0,00</span>
+        </div>
+
+        <div class="linhaResumo">
+          <span>FRETE</span>
+          <span id="valor-frete">0,00</span>
+        </div>
+
+        <div class="linhaResumo totalFinal">
+          <span>TOTAL</span>
+          <span id="total-geral">0,00</span>
+        </div>
+      </div>
+
+      <a href="index.html" class="mais-prod">ADICIONAR MAIS PRODUTOS</a>
+
+      <button id="btn-continuar" class="btn-continuar">CONTINUAR</button>
+    </aside>
+    
+  </main>
+
+  <!-- CALCULAR FRETE -->
+  <section class="frete-area">
+    <h3>CALCULAR FRETE</h3>
+
+    <input type="text" id="cep" placeholder="Digite seu CEP">
+     <button onclick="buscarCep()">CALCULAR</button>
+
+    <p id="endereco-entrega"></p>
+
+    <p class="valor-frete">
+      VALOR DO FRETE: <span id="frete-valor-exibicao">R$ 0,00</span>
+    </p>
+  </section>
+
+  <footer>
+    <div class="logo-footer">
+      <img src="src/img/Logo footer.png" alt="Logo do footer" />
+      <div class="produtos-footer">
+        <h3>Produtos</h3>
+        <a href="#">Whey Protein</a>
+        <a href="#">Barrinha</a>
+        <a href="#">Creatina</a>
+      </div>
+
+      <div class="navegacao-footer">
+        <h3>Navegação</h3>
+        <a href="#suplementos">Suplementos</a>
+        <a href="#promocoes">Promoções</a>
+        <a href="#sobre-nos">Sobre nós</a>
+      </div>
+
+      <div class="contatos">
+        <h3>Contatos</h3>
+        <a href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i></a>
+        <a href="https://gmail.google.com/"><i class="fa-regular fa-envelope" style="color: #ffffff;"></i></a>
+        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram" style="color: #ffffff;"></i></a>
+      </div>
+    </div>
+
+    <img src="src/img/Pagamentos.png" alt="Meios de Pagamento" />
+  </footer>
+
+  <script src="cart.js"></script>
+</body>
+</html>
