@@ -6,14 +6,77 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'BenchNine', sans-serif;
 }
 
+html, body {
+    height: 100%;
+}
 body {
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
   color: #000;
   font-family: 'BenchNine', sans-serif;
   font-size: 18px;
+  min-height: 100vh;
 }
+
+.button{
+  color: #ff7b00;
+}
+
+/* ===== AVISO DE COOKIES ===== */
+.cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    background: #222;
+    color: #fff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+.cookie-banner p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.cookie-btn {
+    background: #ff7b00;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cookie-btn:hover {
+    background: #e56f00;
+}
+
+.cookie-link {
+    color: #ff7b00;
+    text-decoration: underline;
+}
+
+.cookie-banner.hide {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+    pointer-events: none;
+}
+
 
 /* ======== NAVBAR ======== */
 nav {
@@ -22,10 +85,13 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 40px;
+  padding: 15px 30px;
   position: sticky;
   top: 0;
   z-index: 1000;
+   width: 100%;
+   border-bottom: 2px solid #e0e0e0;
+   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 /* Logo à esquerda */
@@ -120,7 +186,7 @@ main {
   padding: 40px 20px;
 }
 
-/* ======== SUPLEMENTOS / PROMOÇÕES ======== */
+/* ======== Suplementos, Promoções, whey, creatina, barrinha ======== */
 section h1 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2.3rem;
@@ -132,7 +198,10 @@ section h1 {
 }
 
 .container-card-suplementos,
-.container-card-promocoes {
+.container-card-promocoes,
+.container-card-whey,
+.container-card-barrinha,
+.container-card-creatina {
   display: flex;
   justify-content: center;
   gap: 40px;
@@ -141,7 +210,10 @@ section h1 {
 }
 
 .container-card-suplementos div,
-.container-card-promocoes div {
+.container-card-promocoes div,
+.container-card-whey div,
+.container-card-barrinha div,
+.container-card-creatina div {
   background-color: #111;
   border-radius: 15px;
   text-align: center;
@@ -152,18 +224,27 @@ section h1 {
 }
 
 .container-card-suplementos div:hover,
-.container-card-promocoes div:hover {
+.container-card-promocoes div:hover,
+.container-card-whey div:hover,
+.container-card-barrinha div:hover,
+.container-card-creatina div:hover {
   transform: scale(1.05);
 }
 
 .container-card-suplementos img,
-.container-card-promocoes img {
+.container-card-promocoes img,
+.container-card-whey img,
+.container-card-barrinha img,
+.container-card-creatina img {
   width: 100%;
   border-radius: 10px;
 }
 
 .container-card-suplementos h3,
-.container-card-promocoes h3 {
+.container-card-promocoes h3,
+.container-card-whey h3,
+.container-card-barrinha h3,
+.container-card-creatina h3 {
   color: #fff;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.2rem;
@@ -173,14 +254,18 @@ section h1 {
 }
 
 .container-card-suplementos p,
-.container-card-promocoes p {
+.container-card-promocoes p,
+.container-card-whey p,
+.container-card-barrinha p,
+.container-card-creatina p {
   color: #f9a825;
   font-family: 'BenchNine', sans-serif;
   font-size: 1.1rem;
   margin-bottom: 10px;
 }
 
-.btn-compra {
+
+.btn-comprar {
   background-color: #f9a825;
   color: #000;
   border: none;
@@ -193,7 +278,7 @@ section h1 {
   transition: background 0.3s;
 }
 
-.btn-compra:hover {
+.btn-comprar:hover {
   background-color: #000;
   border: #f9a825 2px solid;
   color: #f9a825;
@@ -245,6 +330,7 @@ footer {
   align-items: center;
   border-top: 3px solid #f9a825;
   font-family: 'BenchNine', sans-serif;
+  margin-top: auto;
 }
 
 /* Container principal do conteúdo */
@@ -312,3 +398,110 @@ footer > img:last-child {
   opacity: 0.9;
 }
 
+/* pequenos ajustes para a tela de detalhes */
+.detalhes-page {
+  padding: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.detalhes-wrapper {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  margin-top: 24px;
+}
+
+/* imagem do produto */
+.imagem-produto {
+  flex: 1 1 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.imagem-produto img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* painel de informações */
+.info-produto {
+  flex: 1 1 50%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.info-produto h2 {
+  margin: 0 0 12px 0;
+  font-size: 20px;
+}
+
+.quantidade-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.q-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: none;
+  background: #f0f0f0;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#quantidade {
+  width: 60px;
+  padding: 8px;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* descrição */
+.info-produto textarea {
+  width: 100%;
+  height: 100px;
+  resize: vertical;
+  margin-bottom: 12px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  background: #fafafa;
+}
+
+/* preços */
+.preco-unitario, .preco-total {
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: #f4a300; /* cor chamativa igual ao seu tema */
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+/* responsividade */
+@media (max-width: 800px) {
+  .detalhes-wrapper {
+    flex-direction: column;
+  }
+}
