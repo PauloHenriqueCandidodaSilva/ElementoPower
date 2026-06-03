@@ -1,15 +1,13 @@
-// =========================
+
 // Recupera produtos do localStorage
-// =========================
 const STORAGE_KEY = "produtos";
 
 function apiGetProdutos() {
   return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 }
 
-// =========================
 // Renderiza cards no index
-// =========================
+
 function renderCards() {
   const produtos = apiGetProdutos();
 
@@ -20,20 +18,20 @@ function renderCards() {
   containerPromocoes.innerHTML = "";
 
   produtos.forEach(produto => {
-    // Cria card
     const card = document.createElement("div");
     card.classList.add("card-produto");
+
     card.innerHTML = `
       <img src="${produto.imagem}" alt="${produto.nome}">
       <h3>${produto.nome}</h3>
       <p>R$ ${produto.preco.toFixed(2)}</p>
-      <button class="btn-compra">Comprar</button>
+      <button class="btn-comprar" data-id="${produto.id}">Comprar</button>
     `;
 
-    // Coloca no container correto
     if (produto.categoria.toLowerCase() === "promocoes") {
       containerPromocoes.appendChild(card);
-    } else if (produto.categoria.toLowerCase() === "suplementos") {
+    } 
+    else if (produto.categoria.toLowerCase() === "suplementos") {
       containerSuplementos.appendChild(card);
     }
   });
@@ -46,22 +44,25 @@ function renderCards() {
   }
 }
 
-// =========================
 // Inicialização
-// =========================
+
 document.addEventListener("DOMContentLoaded", () => {
   renderCards();
 });
 
-/*Garantir Sempre ter uma Imagem*/
+// Verifica se o usuário já aceitou os cookies
+window.addEventListener("DOMContentLoaded", () => {
+    const cookieBanner = document.getElementById("cookie-banner");
+    const cookieBtn = document.getElementById("cookie-accept");
 
-const imgSrc = produto.imagem && produto.imagem.trim() !== "" 
-               ? produto.imagem 
-               : "https://via.placeholder.com/150";
-card.innerHTML = `
-  <img src="${imgSrc}" alt="${produto.nome}">
-  <h3>${produto.nome}</h3>
-  <p>R$ ${produto.preco.toFixed(2)}</p>
-  <button class="btn-compra">Comprar</button>
-`;
+    // Se já aceitou, não mostra
+    if (localStorage.getItem("cookiesAceitos") === "true") {
+        cookieBanner.classList.add("hide");
+    }
 
+    // Se clicar em "Aceitar"
+    cookieBtn.addEventListener("click", () => {
+        localStorage.setItem("cookiesAceitos", "true");
+        cookieBanner.classList.add("hide");
+    });
+});

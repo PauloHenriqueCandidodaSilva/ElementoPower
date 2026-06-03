@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="src/style.css">
+  <title>Carrinho</title>
+  <link rel="stylesheet" href="src/style.css" />
+    <title>Checkout</title>
+</head>
+<body>
+     <nav class="top-nav checkout-nav">
+        <img src="src/img/Logo.png" class="logo" alt="logo">
+
+        <div class="progresso">
+            <div class="etapa">
+                <img src="src/img/Icone/carrinho-icone.svg">
+                <span>CARRINHO</span>
+            </div>
+            <div class="linha"></div>
+
+            <div class="etapa">
+                <img src="src/img/Icone/user-icone.svg">
+                <span>LOGIN</span>
+            </div>
+            <div class="linha"></div>
+
+            <div class="etapa ativa">
+                <img src="src/img/Icone/check-icone.svg">
+                <span>CHECKOUT</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="checkout-grid">
+
+        <!-- ESQUERDA -->
+        <section class="pagamento">
+
+            <h2>FORMAS DE PAGAMENTO</h2>
+
+            <!-- BOTÕES DE TIPO DE PAGAMENTO -->
+            <div class="pagamento-tipos">
+
+                <button class="tipo-btn ativo" data-tipo="credito">
+                    <img src="src/img/Icone/cartao-credito.svg">
+                    CARTÃO DE CRÉDITO
+                </button>
+
+                <button class="tipo-btn" data-tipo="pix">
+                    <img src="src/img/Icone/pix.svg">
+                    PIX
+                </button>
+
+                <button class="tipo-btn" data-tipo="debito">
+                    <img src="src/img/Icone/cartao-debito.svg">
+                    CARTÃO DE DÉBITO
+                </button>
+
+            </div>
+
+            <!-- FORM CARTÃO DE CRÉDITO -->
+            <form id="form-credito" class="form-box">
+
+                <input type="text" placeholder="Número do cartão">
+                <input type="text" placeholder="Nome impresso no cartão">
+
+                <div class="dupla">
+                    <input type="text" placeholder="Validade">
+                    <input type="text" placeholder="CVV">
+                </div>
+
+                <select id="parcelas">
+                    <option value="1">1x</option>
+                    <option value="2">2x</option>
+                    <option value="3">3x</option>
+                    <option value="4">4x</option>
+                </select>
+
+            </form>
+
+            <!-- FORM PIX -->
+            <div id="form-pix" class="form-box oculto">
+                <p class="pix-aviso">Clique em “GERAR PIX” para realizar seu pagamento.</p>
+                <button id="gerarPix" class="gerar-pix-btn">GERAR PIX</button>
+                <div class="qrcode-area oculto">
+                    <img src="src/img/qrcode.png" id="qrcode">
+                    <p class="codigo-expira">O CÓDIGO EXPIRA EM 30 MINUTOS</p>
+                </div>
+            </div>
+
+            <!-- FORM DÉBITO -->
+            <form id="form-debito" class="form-box oculto">
+
+                <input type="text" placeholder="Número do cartão">
+                <input type="text" placeholder="Nome impresso no cartão">
+
+                <div class="dupla">
+                    <input type="text" placeholder="Validade">
+                    <input type="text" placeholder="CVV">
+                </div>
+
+            </form>
+
+            <!-- ENDEREÇO -->
+           <h3>ENDEREÇO DE ENTREGA</h3>
+
+<label for="cep-input" class="label-cep"></label>
+<input 
+    type="text" 
+    id="cep-input" 
+    placeholder="Digite o CEP" 
+    maxlength="9"
+/>
+
+<div class="endereco-box">
+    <p id="endereco"></p>
+    <p id="cep-texto"></p>
+</div>
+
+                <label class="frete-opcao">
+                    <input type="radio" name="frete" value="0">
+                    <div>
+                        <strong>DE 3 A 7 DIAS ÚTEIS:</strong><br>
+                        Entrega padrão (Econômica)
+                    </div>
+                    <span>R$0,00</span>
+                </label>
+
+                <label class="frete-opcao">
+                    <input type="radio" name="frete" value="13">
+                    <div>
+                        <strong>DE 5 A 10 DIAS ÚTEIS:</strong><br>
+                        Entrega premium
+                    </div>
+                    <span>R$13,00</span>
+                </label>
+            </div>
+
+            <!-- FINALIZAR -->
+            <button id="btn-finalizar" class="finalizar-btn">
+                FINALIZAR COMPRA
+            </button>
+
+        </section>
+
+        <!-- DIREITA – RESUMO -->
+        <aside class="resumo">
+
+            <div class="box">
+                <div class="linhaResumo">
+                    <span>PRODUTOS</span>
+                    <span id="resumo-produtos">R$0,00</span>
+                </div>
+
+                <div class="linhaResumo">
+                    <span>FRETE</span>
+                    <span id="resumo-frete">R$0,00</span>
+                </div>
+
+                <div class="linhaResumo totalFinal">
+                    <span>TOTAL</span>
+                    <span id="resumo-total">R$0,00</span>
+                </div>
+            </div>
+
+            <h4>REVISÃO DE ITENS PARA ENVIO</h4>
+
+            <div class="item-revisao">
+                <img id="rev-img" src="">
+                <div>
+                    <p id="rev-nome"></p>
+                    <p id="rev-quantidade"></p>
+                    <p id="rev-preco"></p>
+                </div>
+            </div>
+
+        </aside>
+       <a class="button" href="cart.html">Voltar ao carrinho</a>
+
+    </main>
+    <footer>
+    <div class="logo-footer">
+      <img src="src/img/Logo footer.png" alt="Logo do footer" />
+      <div class="produtos-footer">
+        <h3>Produtos</h3>
+        <a href="whey.html">Whey Protein</a>
+        <a href="barrinha.html">Barrinha</a>
+        <a href="creatina.html">Creatina</a>
+      </div>
+
+      <div class="navegacao-footer">
+        <h3>Navegação</h3>
+        <a href="#suplementos">Suplementos</a>
+        <a href="#promocoes">Promoções</a>
+        <a href="#sobre-nos">Sobre nós</a>
+      </div>
+
+      <div class="contatos">
+        <h3>Contatos</h3>
+        <a href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i></a>
+        <a href="https://gmail.google.com/"><i class="fa-regular fa-envelope" style="color: #ffffff;"></i></a>
+        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram" style="color: #ffffff;"></i></a>
+      </div>
+    </div>
+
+    <img src="src/img/Pagamentos.png" alt="Meios de Pagamento" />
+  </footer>
+
+    <script src="checkout.js"></script>
+</body>
+</html>

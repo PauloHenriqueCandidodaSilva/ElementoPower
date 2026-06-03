@@ -1,6 +1,6 @@
-// =========================
+
 //  SIMULAÇÃO DE API (localStorage)
-// =========================
+
 const STORAGE_KEY = "produtos";
 
 function apiGetProdutos() {
@@ -17,9 +17,8 @@ function gerarNovoId() {
   return produtos[produtos.length - 1].id + 1;
 }
 
-// =========================
 //  LÓGICA DO FORMULÁRIO
-// =========================
+
 const form = document.getElementById("form-produto");
 const tabelaBody = document.querySelector("#tabela-produtos tbody");
 const semProdutosDiv = document.getElementById("sem-produtos");
@@ -34,9 +33,8 @@ const campoDesc = document.getElementById("descricao");
 const btnLimpar = document.getElementById("btn-limpar");
 const btnLogout = document.getElementById("btn-logout");
 
-// =========================
 //  RENDERIZAR TABELA
-// =========================
+
 function renderTabela() {
   const produtos = apiGetProdutos();
   tabelaBody.innerHTML = "";
@@ -83,9 +81,8 @@ function renderTabela() {
   });
 }
 
-// =========================
 //  EXCLUIR PRODUTO
-// =========================
+
 function excluirProduto(id) {
   let produtos = apiGetProdutos();
   produtos = produtos.filter(p => p.id !== id);
@@ -93,9 +90,8 @@ function excluirProduto(id) {
   renderTabela();
 }
 
-// =========================
 //  EDITAR PRODUTO
-// =========================
+
 function editarProduto(id) {
   const produtos = apiGetProdutos();
   const produto = produtos.find(p => p.id === id);
@@ -110,9 +106,8 @@ function editarProduto(id) {
   campoDesc.value = produto.descricao;
 }
 
-// =========================
 //  SALVAR FORMULÁRIO
-// =========================
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -136,14 +131,16 @@ form.addEventListener("submit", (e) => {
     produtos.push(novoProduto);
   }
 
+  salvarProduto(novoProduto);
+
   apiSaveProdutos(produtos);
   renderTabela();
   limparFormulario();
 });
 
-// =========================
+
 //  LIMPAR FORMULÁRIO
-// =========================
+
 function limparFormulario() {
   campoId.value = "";
   campoNome.value = "";
@@ -156,14 +153,39 @@ function limparFormulario() {
 
 btnLimpar.addEventListener("click", limparFormulario);
 
-// =========================
+
 //  LOGOUT
-// =========================
+
 btnLogout.addEventListener("click", () => {
   window.location.href = "login.html";
 });
 
-// =========================
 //  INICIALIZAÇÃO
-// =========================
+
 renderTabela();
+
+ function salvarProduto(produto) {
+  // Promoções
+  if (produto.categoria === "promo") {
+    const lista = JSON.parse(localStorage.getItem("produtosPromocoes")) || [];
+    lista.push(produto);
+    localStorage.setItem("produtosPromocoes", JSON.stringify(lista));
+  }
+
+  // Suplementos gerais
+  if (produto.categoria === "suplemento") {
+    const lista = JSON.parse(localStorage.getItem("produtosSuplementos")) || [];
+    lista.push(produto);
+    localStorage.setItem("produtosSuplementos", JSON.stringify(lista));
+  }
+
+  // WHEY PROTEIN – NOVA LÓGICA
+  if (
+    produto.categoria.toLowerCase() === "whey" ||
+    produto.categoria.toLowerCase() === "whey protein"
+  ) {
+    const lista = JSON.parse(localStorage.getItem("produtosWhey")) || [];
+    lista.push(produto);
+    localStorage.setItem("produtosWhey", JSON.stringify(lista));
+  }
+}
